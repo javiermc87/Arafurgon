@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>Alquiler de vehiculos comerciales</h1>
+            <h1>Alquiler de vehiculos comerciales HOLA</h1>
             <h4> 1- Entre en nuestro garaje para ver la flota</h4>
             <h4> 2- Seleccione el tipo de vehiculo que busca</h4>
             <h4> 3- Escoja el modelo mas adecualdo a sus necesidades</h4>
