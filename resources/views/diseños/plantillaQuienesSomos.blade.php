@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    @include('layouts.app')
+    @yield("log")
+    
 
     @include("diseños.cabecera")
     @yield("Cabecera")

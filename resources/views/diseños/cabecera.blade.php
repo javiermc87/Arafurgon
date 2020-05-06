@@ -1,3 +1,4 @@
+
 <div class="row ">
   <div class="col-3"></div>
   <div class="col-6 ">
@@ -25,7 +26,5 @@
     </ul>
   </div>
   </div>
-        <div class="navbar-nav ml-auto">
-            <a href="#" class="nav-item nav-link">Login</a>
-        </div>
+
 </nav>

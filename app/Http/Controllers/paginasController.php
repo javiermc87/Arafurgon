@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class paginasController extends Controller
 {
@@ -13,7 +14,6 @@ class paginasController extends Controller
         return view("home");
     }
 
-  
     public function quienesSomos()
     {
         //Nos llevara a la pagina Quienes Somos 
