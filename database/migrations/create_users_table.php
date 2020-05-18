@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            // CUSTOM FIELDS
+            $table->boolean('is_admin')->default('0');  // Si está a true, es un administrador
+            $table->string('apellidos');
+            $table->string('dni');
+            $table->text('domicilio')->nullable();
+            $table->float('iva'); // TODO: mirar como se pone el default ->default('21.0')
         });
     }
 
