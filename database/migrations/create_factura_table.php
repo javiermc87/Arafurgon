@@ -18,8 +18,8 @@ class CreateFacturaTable extends Migration
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('pedido_id')->references('id')->on('pedido');
-            $table->foreign('linea_factura_id')->references('id')->on('linea_factura');
-            $table->timestamps('fecha', 0);
+            $table->dateTime('fecha');
+            $table->timestamps();
         });
     }
 

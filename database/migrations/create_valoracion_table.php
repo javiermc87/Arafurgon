@@ -18,8 +18,8 @@ class CreateValoracionTable extends Migration
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('vehiculo_id')->references('id')->on('vehiculo');
-            $table->float('valoracion');
-            $table->boolean('verificado')->default(0);
+            $table->float('puntuacion');
+            $table->boolean('verificado')->default(1);
             $table->timestamps();
             $table->string('comentario');
         });

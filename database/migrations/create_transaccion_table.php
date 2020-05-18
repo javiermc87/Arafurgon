@@ -18,7 +18,6 @@ class CreateTrandaccionTable extends Migration
             $table->id();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('pedido_id')->references('id')->on('pedido');
-            $table->string('tipo');
             $table->float('total');
             $table->string('descripcion');
             $table->timestamps('fecha', 0);
