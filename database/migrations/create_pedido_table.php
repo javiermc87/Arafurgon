@@ -15,13 +15,11 @@ class CreatePedidoTable extends Migration
     public function up()
     {
         Schema::create('pedido', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('transaction_id')->references('id')->on('transaccion');
+            $table->id();          
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('linea_pedido_id')->references('id')->on('linea_pedido');
             $table->dateTime('fecha', 0);
             $table->enum('estado', ['cancelado', 'confirmado', 'pagado'])->nullable();  // Estados posibles: Nulo, Cancelado, Confirmado, Pagado
-            $table->timestamps('added_on', 0);
+            $table->timestamps();
         });
     }
 
