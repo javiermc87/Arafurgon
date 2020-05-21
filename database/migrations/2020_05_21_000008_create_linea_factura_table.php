@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLineaPedidoTable extends Migration
+class CreateLineaFacturaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateLineaPedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('linea_pedido', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('pedido_id')->references('id')->on('pedido');
+        Schema::create('linea_factura', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('vehiculo_id');
             $table->foreign('vehiculo_id')->references('id')->on('vehiculo');
+
+            $table->unsignedBigInteger('factura_id');
+            $table->foreign('factura_id')->references('id')->on('factura');
+
             $table->enum('estado', ['entregado', 'devuelto'])->nullable();  // Estados posibles: entregado confirmado devuelto
            
             $table->string('descripcion');
@@ -27,6 +32,7 @@ class CreateLineaPedidoTable extends Migration
             $table->float('subtotal');  // precio * descuento * cantidad_dias
             $table->float('total_con_iva');  // subtotal * iva
             $table->float('tasas');  // total_con_iva - subotal
+            $table->timestamps();
         });
     }
 
@@ -37,6 +43,6 @@ class CreateLineaPedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linea_pedido');
+        Schema::dropIfExists('linea_factura');
     }
 }

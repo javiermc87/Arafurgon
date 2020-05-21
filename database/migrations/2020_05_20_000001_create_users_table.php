@@ -14,19 +14,20 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
             // CUSTOM FIELDS
             $table->boolean('is_admin')->default('0');  // Si está a true, es un administrador
-            $table->string('apellidos');
-            $table->string('dni');
+            $table->string('apellidos')->nullable();;
+            $table->string('dni')->nullable();;
             $table->text('domicilio')->nullable();
-            $table->float('iva'); // TODO: mirar como se pone el default ->default('21.0')
+            $table->float('iva')->nullable();; // TODO: mirar como se pone el default ->default('21.0')
+         
         });
     }
 
@@ -37,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }

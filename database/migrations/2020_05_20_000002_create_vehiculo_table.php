@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 class CreateVehiculoTable extends Migration
 {
     /**
@@ -15,22 +14,23 @@ class CreateVehiculoTable extends Migration
     public function up()
     {
         Schema::create('vehiculo', function (Blueprint $table) {
-            $table->id();
-            $table->enum('tipo', ['carga', 'pasajeros', 'frigorifica'])->nullable();  // Estados posibles: Frigorifica, carga, pasajero
+            $table->bigIncrements('id');
+            $table->enum('tipo', ['carga', 'pasajeros', 'frigorifica']);  // Estados posibles: Frigorifica, carga, pasajero
             $table->string('matricula');
             $table->float('precio_dia');
             $table->float('kilometraje');
             $table->float('valoracion');
-            $table->boolean('disponible')->default(0);
+           
 
-            $table->float('volumen');
-            $table->float('kg');
-            $table->integer('num_pasajeros');
+            $table->float('volumen')->nullable($value = true);
+            $table->float('kg')->nullable($value = true);
+            $table->integer('num_pasajeros')->nullable($value = true);
+
+            $table->boolean('disponible')->default(0);
 
 
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -38,6 +38,6 @@ class CreateVehiculoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehiculo');
+        Schema::dropIfExists('vehiculo_');
     }
 }

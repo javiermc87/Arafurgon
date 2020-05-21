@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateTrandaccionTable extends Migration
+class CreateFacturaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +13,16 @@ class CreateTrandaccionTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaccion', function (Blueprint $table) {
-            $table->id();
+        Schema::create('factura', function (Blueprint $table) {
+            $table->bigIncrements('id');
+           
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('pedido_id');
             $table->foreign('pedido_id')->references('id')->on('pedido');
-            $table->float('total');
-            $table->string('descripcion');
-            $table->timestamps('fecha', 0);
-            $table->string('external_id');
-            $table->string('resultado');
+            $table->dateTime('fecha', 0);
+            $table->timestamps();
         });
     }
 
@@ -33,6 +33,6 @@ class CreateTrandaccionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaccion');
+        Schema::dropIfExists('factura');
     }
 }
