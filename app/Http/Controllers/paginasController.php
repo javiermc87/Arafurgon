@@ -39,5 +39,11 @@ class paginasController extends Controller
         //Nos llevara a la pagina Quienes Somos 
         return view("pasajeros");
     }
+
+    public function administracion()
+    {
+        //Nos llevara a la pagina Quienes Somos 
+        return view("administracion");
+    }
    
 }

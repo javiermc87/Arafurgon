@@ -20,6 +20,9 @@ class CreateVehiculoTable extends Migration
             $table->float('precio_dia');
             $table->float('kilometraje');
             $table->float('valoracion');
+
+            $table->string('descripcion')->nullable();
+            $table->string('modelo')->nullable();
            
 
             $table->float('volumen')->nullable($value = true);

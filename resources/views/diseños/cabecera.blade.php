@@ -23,6 +23,9 @@
       <li class="nav-item {{request()->is('quienesSomos') ? 'active' :''}}">
         <a class="nav-link" href="{{url('quienesSomos')}}">Quienes somos</a>
       </li>
+      <li class="nav-item {{request()->is('administracion') ? 'active' :''}}">
+        <a class="nav-link" href="{{url('administracion')}}">Area de Administración</a>
+      </li>
     </ul>
   </div>
   </div>
